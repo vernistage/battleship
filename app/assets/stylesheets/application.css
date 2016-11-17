@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+
+table, th, td {
+    border: 1px solid #72BCD4;
+}
+
+td { 
+width: 35px;
+height: 35px;
+color: white;
+text-align: center;
+background-color: #72BCD4
+}
+
+th {
+color: white;
+text-align: center;
+background-color: #72BCD4
+}
