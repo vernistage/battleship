@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -32,3 +33,11 @@ color: white;
 text-align: center;
 background-color: #72BCD4
 }
+
+h1.game-title {
+	text-align: center;
+	color: red;
+	font-size: 75px;
+}
+
+
