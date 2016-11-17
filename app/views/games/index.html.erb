@@ -1,0 +1,24 @@
+<div class="container">
+<p>
+	<%= link_to "Start a new game", new_game_path, class: "btn btn-danger center-block" %>	
+</p>
+
+<h2 class='stats'>Game stats</h2>
+	<table class="table table-condensed">
+		<tr>
+			<th> Game </th>
+			<th> Player 1 </th>
+			<th> Player 2 </th>
+			<th> Winner </th>
+		</tr>
+
+		<!-- games.each do |game| -->
+		<tr>
+			<td> game. id</td>
+			<td> game. users. first</td>
+			<td>game. users. last</td>
+			<td>game.  winner</td>
+		</tr>
+		<!-- end -->
+	</table>
+</div>
