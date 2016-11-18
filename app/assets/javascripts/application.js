@@ -17,6 +17,7 @@
 
 var coordinates;
 var shipPicked;
+var firedCoordinates = ["F", 4];
 
 
 $(document).ready(function() {
@@ -78,23 +79,51 @@ $(document).ready(function() {
 	});
 
 // Fire logic
+var curr_cell
 	$('.opp-board td').click(function(){ 
-		alert("you here")
+		curr_cell = $(this)
 		$(this).text("X")
 	});
 
 	$('#fire-btn').click(function(){ 
-		alert("you here")
+		curr_cell.css('background-color', 'red')
 		$(this).text("Waiting for other player...")
+		$(this).parent().find('h3').remove()
+		$(this).after("<h3> SUCCESS!!! </h3>")
 	});
+
+
+
+
+	$('#fire-btn').click(function(){
+		setTimeout(function(){firedUpon()},3000);
+		var someShit = $('.A').first().parent().siblings('#'+firedCoordinates[1]).children('.'+firedCoordinates[0]);
+		if (someShit.hasClass('shipTrue')){
+			setTimeout(function(){someShit.css("background-color", "black")},3000)
+			;
+		} else {
+			setTimeout(function(){someShit.text('X')},6000)
+			
+		}
+	});
+
 
 });
 
 
-var Game = function(){
-
-
+var firedUpon = function(){
+	var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+	var x = letters[Math.floor(Math.random()*letters.length)]
+	var y = Math.floor(Math.random()*10);
+	firedCoordinates = [x, y]
 }
+
+var hasShip = function(x,y){
+	
+}
+
+
+
 
 var Ship = function(name, length){
 	this.name = name;
@@ -123,18 +152,42 @@ Ship.prototype.changeOrientation = function(){
 
 // Checking to see if length of boat goes over game border
 
-Ship.prototype.isPlaceable = function(x, y){
-		var x = x.charCodeAt(0) - 64;
-		if(((y + this.length -1) <= 10) && ((x + this.length -1) <= 10)){
+// Ship.prototype.isPlaceable = function(x, y){
+// 		var x = x.charCodeAt(0) - 64;
+// 		if(((y + this.length -1) <= 10) && ((x + this.length -1) <= 10)){
+// 			console.log('Yes, is placeable!')
+// 			this.placed = true;
+// 			return true
+// 		}
+// 		else {
+// 			console.log("Nope. Not placeable.")
+// 			return false	
+// 		}
+// 	};
+
+
+	Ship.prototype.isPlaceable = function(x, y){
+	if (this.orientation == "vertical"){
+		if((y + this.length -1) <= 10){
 			console.log('Yes, is placeable!')
-			this.placed = true;
 			return true
 		}
 		else {
 			console.log("Nope. Not placeable.")
 			return false	
 		}
-	};
+	} else if (this.orientation == "horizontal"){
+		x = x.charCodeAt(0) - 64;
+		if((x + this.length -1) <= 10){
+			console.log("Yes, is placeable!")
+			return true;
+		}
+		else {
+			console.log("Nope. Not placeable.")
+			return false
+		}
+	}
+}
 
 
 
