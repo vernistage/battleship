@@ -45,4 +45,15 @@ h1.game-title {
 	background-color: red;
 }
 
+ul.boat-dock {
+	margin-left: none;
+	list-style: none;
+}
 
+li.ship-btn button {
+	margin-top: 5px;
+}
+
+li.ship-btn button strong {
+	font-size: 1.8em;
+}
