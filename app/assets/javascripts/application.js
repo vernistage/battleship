@@ -20,7 +20,7 @@ var shipPicked;
 
 
 $(document).ready(function() {
-	
+
 	$(document).on('click', 'td', function(){ 
 		$(document).find('#clicked').removeAttr('id')
 		$(this).attr('id', 'clicked')
@@ -77,6 +77,16 @@ $(document).ready(function() {
 		shipPicked.changeOrientation();
 	});
 
+// Fire logic
+	$('.opp-board td').click(function(){ 
+		alert("you here")
+		$(this).text("X")
+	});
+
+	$('#fire-btn').click(function(){ 
+		alert("you here")
+		$(this).text("Waiting for other player...")
+	});
 
 });
 
