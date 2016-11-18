@@ -12,13 +12,13 @@
 			<th> Winner </th>
 		</tr>
 
-		<!-- games.each do |game| -->
-		<tr>
-			<td> game. id</td>
-			<td> game. users. first</td>
-			<td>game. users. last</td>
-			<td>game.  winner</td>
-		</tr>
-		<!-- end -->
+		<% @games.each do |game| %>
+			<tr>
+				<td><%= game.id %></td>
+				<td><%= game.users.first %></td>
+				<td><%= game.users.last %></td>
+				<td><%= game.winner %></td>
+			</tr>
+		<% end %>
 	</table>
 </div>
