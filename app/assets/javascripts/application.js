@@ -19,7 +19,9 @@ var coordinates;
 
 $(document).ready(function() {
 	
-	$('td').on('click', function(){ 
+	$(document).on('click', 'td', function(){ 
+		$(document).find('#clicked').removeAttr('id')
+		$(this).attr('id', 'clicked')
 		var column = $(this).attr("class");
 		var row = $(this).closest('tr').attr('id');
 		return coordinates = [column, parseInt(row)]
@@ -68,6 +70,8 @@ Ship.prototype.changeOrientation = function(){
 	};
 };
 
+// Checking to see if length of boat goes over game border
+
 Ship.prototype.isPlaceable = function(x, y){
 	if (this.orientation == "vertical"){
 		if((y + this.length -1) <= 10){
@@ -87,6 +91,20 @@ Ship.prototype.isPlaceable = function(x, y){
 		else {
 			console.log("Nope. Not placeable.")
 			return false
+		}
+	}
+}
+
+// Changing css of boat elements horizontal
+
+Ship.prototype.horizontalPlace = function(x, y){
+	if (this.isPlaceable(x, y)) {
+		var firstBox = document.getElementById("clicked");
+		
+		var index = $(firstBox).index()
+		for (var i = index + 1; i <= index + this.length; i++){
+			var element = $(firstBox).parent().children(':nth-child('+i+')')
+			element.addClass('shipTrue')
 		}
 	}
 }
