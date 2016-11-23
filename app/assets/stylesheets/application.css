@@ -14,6 +14,10 @@
  *= require_tree .
  *= require_self
  */
+ table {
+ 	margin-bottom: 15px;
+ 	margin-left: 10px;
+ }
 
 table, th, td {
     border: 1px solid #72BCD4;
@@ -33,6 +37,10 @@ color: white;
 text-align: center;
 border: solid 2px white;
 background-color: #72BCD4
+}
+
+table.opp-board th, table.opp-board td {
+	background-color: lightgrey;
 }
 
 h1.game-title {
