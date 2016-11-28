@@ -31,4 +31,4 @@ Look at the [Wikipedia description](https://en.wikipedia.org/wiki/Battleship_(ga
 
 ##Conclusion
 
-We wrote a Ruby on Rails application with a Javascript simulation of Battleship.
+We paired together and wrote a Ruby on Rails application with a Javascript simulation of Battleship.
